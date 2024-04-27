@@ -3,7 +3,7 @@ import React from "react";
 const Form = () => {
   return (
     <div className="container my-5">
-      <form>
+      <form className="border rounded p-3">
         <div className="form-group mb-3">
           <label htmlFor="firstName" className="form-label">
             First Name
