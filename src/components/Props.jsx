@@ -31,6 +31,7 @@ const Props = () => {
       <div className="bg-light text-dark p-4 rounded-3 my-2">
         <code>
           {`import React from 'react';`}
+          <br />
           {`import MyComponent from './MyComponent';`}
           <br />
           {`const App = () => {

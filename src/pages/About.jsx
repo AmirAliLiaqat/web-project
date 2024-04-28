@@ -120,6 +120,33 @@ const About = () => {
             comment="Elliot you are always so right :)"
           />
         </Card>
+        <Card
+          imgSrc="/images/kristy.png"
+          header="Kristy"
+          meta="Coworker"
+          description="Kristy is a copywriter working in New York. "
+          time="2011"
+          friends="137"
+        >
+          <SingleComment
+            imgSrc="/images/matt.jpg"
+            name="Matt"
+            time="Today at 5:42PM"
+            comment="How artistic!"
+          />
+          <SingleComment
+            imgSrc="/images/elliot.jpg"
+            name="Elliot Fu"
+            time="Yesterday at 12:30AM"
+            comment="This has been very useful for my research. Thanks as well!"
+          />
+          <SingleComment
+            imgSrc="/images/jenny.jpg"
+            name="Jenny Hess"
+            time="Just now"
+            comment="Elliot you are always so right :)"
+          />
+        </Card>
       </div>
       <h1>Comments Using Props:</h1>
       <div className="ui comments">
