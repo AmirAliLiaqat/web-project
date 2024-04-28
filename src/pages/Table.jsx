@@ -77,9 +77,9 @@ const Table = () => {
   return (
     <div className="container my-5">
       <table className="table table-bordered">
-        <thead>
+        <thead className="bg-dark text-white">
           <tr>
-            <th>Id</th>
+            <th className="text-center">Id</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Email</th>
@@ -90,7 +90,7 @@ const Table = () => {
         <tbody>
           {dummyData.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td>
+              <td className="text-center">{user.id}</td>
               <td>{user.firstname}</td>
               <td>{user.lastname}</td>
               <td>{user.email}</td>

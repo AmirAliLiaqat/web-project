@@ -49,7 +49,7 @@ const Form = () => {
             type="number"
             className="form-control"
             id="phoneNumber"
-            placeholder="enter last name"
+            placeholder="enter phone number"
           />
         </div>
         <div className="form-group mb-3">
@@ -60,7 +60,7 @@ const Form = () => {
             type="password"
             className="form-control"
             id="password"
-            placeholder="enter last name"
+            placeholder="enter password"
           />
         </div>
         <div className="form-group mb-3">
@@ -71,7 +71,7 @@ const Form = () => {
             type="password"
             className="form-control"
             id="confirmPassword"
-            placeholder="enter last name"
+            placeholder="confirm password"
           />
         </div>
         <div className="text-end">
