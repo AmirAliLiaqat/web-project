@@ -32,12 +32,23 @@ const Form = () => {
       setAlertMessage("Error facing to submit user");
     }
 
+    // show user data in alert box
     alert(
       `First Name: ${formData.firstName}\n` +
         `Last Name: ${formData.lastName}\n` +
         `Email: ${formData.email}\n` +
         `Phone Number: ${formData.phoneNumber}\n`
     );
+
+    // Clear form after submission
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: "",
+    });
   };
 
   return (
