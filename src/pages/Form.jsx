@@ -31,7 +31,13 @@ const Form = () => {
     } else {
       setAlertMessage("Error facing to submit user");
     }
-    console.log("Form Data:", formData);
+
+    alert(
+      `First Name: ${formData.firstName}\n` +
+        `Last Name: ${formData.lastName}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone Number: ${formData.phoneNumber}\n`
+    );
   };
 
   return (
