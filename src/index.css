@@ -7,6 +7,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+p {
+  line-height: 1.8;
+}
+
 @media (max-width: 769px) {
   .navbar-collapse {
     margin: 10px 0;

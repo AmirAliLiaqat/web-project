@@ -6,6 +6,7 @@ import ChildProps from "../components/ChildProps";
 import States from "../components/States";
 import Hooks from "../components/Hooks";
 import ReactRouterDom from "../components/ReactRouterDom";
+import ReduxDetail from "../components/ReduxDetail";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <States />
       <Hooks />
       <ReactRouterDom />
+      <ReduxDetail />
     </div>
   );
 };

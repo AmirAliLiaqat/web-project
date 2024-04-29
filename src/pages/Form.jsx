@@ -1,18 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Form = () => {
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  // Handler to update form data when inputs change
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [id]: value,
+    }));
+  };
+
+  // Handler for form submission
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setShowAlert(true);
+
+    if (formData !== "") {
+      setAlertMessage("User submitted successfully...");
+    } else {
+      setAlertMessage("Error facing to submit user");
+    }
+    console.log("Form Data:", formData);
+  };
+
   return (
     <div className="container my-5">
-      <form className="border rounded p-3">
+      {showAlert && (
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>{alertMessage}</strong>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          ></button>
+        </div>
+      )}
+      <form className="border rounded p-3" onSubmit={handleSubmit}>
         <div className="form-group mb-3">
           <label htmlFor="firstName" className="form-label">
             First Name
           </label>
           <input
-            type="email"
+            required
+            type="text"
             className="form-control"
             id="firstName"
-            placeholder="enter first name"
+            placeholder="Enter first name"
+            value={formData.firstName}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-3">
@@ -20,10 +70,13 @@ const Form = () => {
             Last Name
           </label>
           <input
-            type="email"
+            required
+            type="text"
             className="form-control"
             id="lastName"
-            placeholder="enter last name"
+            placeholder="Enter last name"
+            value={formData.lastName}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-3">
@@ -31,11 +84,14 @@ const Form = () => {
             Email address
           </label>
           <input
+            required
             type="email"
             className="form-control"
             id="email"
             aria-describedby="emailHelp"
-            placeholder="enter your email address"
+            placeholder="Enter your email address"
+            value={formData.email}
+            onChange={handleInputChange}
           />
           <div id="emailHelp" className="form-text">
             We'll never share your email with anyone else.
@@ -46,10 +102,13 @@ const Form = () => {
             Phone Number
           </label>
           <input
-            type="number"
+            required
+            type="tel"
             className="form-control"
             id="phoneNumber"
-            placeholder="enter phone number"
+            placeholder="Enter phone number"
+            value={formData.phoneNumber}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-3">
@@ -57,10 +116,13 @@ const Form = () => {
             Password
           </label>
           <input
+            required
             type="password"
             className="form-control"
             id="password"
-            placeholder="enter password"
+            placeholder="Enter password"
+            value={formData.password}
+            onChange={handleInputChange}
           />
         </div>
         <div className="form-group mb-3">
@@ -68,10 +130,13 @@ const Form = () => {
             Confirm Password
           </label>
           <input
+            required
             type="password"
             className="form-control"
             id="confirmPassword"
-            placeholder="confirm password"
+            placeholder="Confirm password"
+            value={formData.confirmPassword}
+            onChange={handleInputChange}
           />
         </div>
         <div className="text-end">

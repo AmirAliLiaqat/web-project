@@ -88,19 +88,34 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {dummyData.map((user) => (
-            <tr key={user.id}>
-              <td className="text-center">{user.id}</td>
-              <td>{user.firstname}</td>
-              <td>{user.lastname}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td className="text-center">
-                <button className="btn btn-primary mx-1">Edit</button>
-                <button className="btn btn-danger mx-1">Delete</button>
+          {dummyData ? (
+            dummyData.map((user) => (
+              <tr key={user.id}>
+                <td className="text-center">{user.id}</td>
+                <td>{user.firstname}</td>
+                <td>{user.lastname}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td className="text-center">
+                  <button className="btn btn-info mx-1 text-white" title="View">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <button className="btn btn-primary mx-1" title="Edit">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                  <button className="btn btn-danger mx-1" title="Delete">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6" className="text-center">
+                <p className="fw-bolder text-danger">No Data Found</p>
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>
