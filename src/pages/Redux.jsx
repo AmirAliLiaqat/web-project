@@ -40,8 +40,9 @@ function Redux({ todos, addTodo, toggleTodo, deleteTodo, deleteAllTodos }) {
         <input
           type="text"
           value={text}
-          className="form-control me-2 w-50"
+          className="form-control me-2"
           onChange={handleChange}
+          style={{ width: "88%" }}
         />
         <button className="btn btn-primary" onClick={handleSubmit}>
           Add
@@ -51,22 +52,28 @@ function Redux({ todos, addTodo, toggleTodo, deleteTodo, deleteAllTodos }) {
         </button>
       </div>
       <ul className="list-group">
-        {todos.map((todo) => (
-          <li
-            key={todo.id}
-            className="list-group-item d-flex justify-content-between align-items-center"
-            onClick={() => handleToggle(todo.id)}
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
-            {todo.text}
-            <button
-              className="btn btn-outline-danger"
-              onClick={() => handleDelete(todo.id)}
+        {todos ? (
+          todos.map((todo) => (
+            <li
+              key={todo.id}
+              className="list-group-item d-flex justify-content-between align-items-center"
+              onClick={() => handleToggle(todo.id)}
+              style={{
+                textDecoration: todo.completed ? "line-through" : "none",
+              }}
             >
-              <i class="fa-solid fa-trash-can"></i>
-            </button>
-          </li>
-        ))}
+              {todo.text}
+              <button
+                className="btn btn-outline-danger"
+                onClick={() => handleDelete(todo.id)}
+              >
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </li>
+          ))
+        ) : (
+          <p></p>
+        )}
       </ul>
     </div>
   );

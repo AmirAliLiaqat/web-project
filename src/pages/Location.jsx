@@ -44,9 +44,11 @@ class Location extends React.Component {
         <div className="container my-5">
           <h1>User Current Location Using Class Component:</h1>
           <br></br>
-          <h3>Latitude: {latitude}</h3>
-          <h3>Longitude: {longitude}</h3>
-          <h3>Hemisphere: {hemisphere}</h3>
+          <div className="bg-light rounded p-5">
+            <h3>Latitude: {latitude}</h3>
+            <h3>Longitude: {longitude}</h3>
+            <h3>Hemisphere: {hemisphere}</h3>
+          </div>
         </div>
       );
     }

@@ -24,18 +24,31 @@ const About = () => {
 
   return (
     <div className="container my-5">
-      <h1>Counter Using State:</h1>
-      <div>
-        <button className="btn btn-primary mx-1" onClick={incrementCounter}>
-          Increment Counter
-        </button>
-        <button className="btn btn-primary mx-1" onClick={decrementCounter}>
-          Decrement Counter
-        </button>
-        <button className="btn btn-primary mx-1" onClick={resetCounter}>
-          Reset
-        </button>
-        <p className="my-3">Counter Value: {counter}</p>
+      <h1>Counter Using Hooks:</h1>
+      <div
+        className="bg-light rounded p-5 d-flex justify-content-between"
+        style={{ width: "93%" }}
+      >
+        <div>
+          <h1>Counter Value: {counter}</h1>
+        </div>
+        <div>
+          <button
+            className="btn btn-lg btn-primary mx-1"
+            onClick={incrementCounter}
+          >
+            Increment Counter
+          </button>
+          <button
+            className="btn btn-lg btn-info text-white mx-1"
+            onClick={decrementCounter}
+          >
+            Decrement Counter
+          </button>
+          <button className="btn btn-lg btn-danger mx-1" onClick={resetCounter}>
+            Reset
+          </button>
+        </div>
       </div>
       <h1>Props & Child Props:</h1>
       <div className="ui link cards mt-3">
