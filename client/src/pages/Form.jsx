@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Form = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [alertColor, setAlertColor] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,23 +24,25 @@ const Form = () => {
   };
 
   // Handler for form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setShowAlert(true);
 
-    if (formData !== "") {
-      setAlertMessage("User submitted successfully...");
-    } else {
+    try {
+      // Send POST request to backend API to create user
+      const response = await axios.post(
+        "http://localhost:5000/api/users",
+        formData
+      );
+
+      if (response.status === 200) {
+        setAlertColor("success");
+        setAlertMessage("User submitted successfully...");
+      }
+    } catch (error) {
+      setAlertColor("danger");
       setAlertMessage("Error facing to submit user");
     }
-
-    // show user data in alert box
-    alert(
-      `First Name: ${formData.firstName}\n` +
-        `Last Name: ${formData.lastName}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone Number: ${formData.phoneNumber}\n`
-    );
 
     // Clear form after submission
     setFormData({
@@ -56,7 +60,7 @@ const Form = () => {
       <h1>User Detail:</h1>
       {showAlert && (
         <div
-          className="alert alert-success alert-dismissible fade show"
+          className={`alert alert-${alertColor} alert-dismissible fade show`}
           role="alert"
         >
           <strong>{alertMessage}</strong>
