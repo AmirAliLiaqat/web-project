@@ -53,6 +53,11 @@ const Form = () => {
       password: "",
       confirmPassword: "",
     });
+
+    // Hide alert after 3 seconds
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
   };
 
   return (
